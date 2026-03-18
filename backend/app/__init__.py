@@ -48,6 +48,12 @@ def create_app(config_class=Config):
     if should_log_startup:
         logger.info("已注册模拟进程清理函数")
     
+    # 翻译中间件（X-Lang: en 时自动翻译请求/响应）
+    from .middleware.translation import register_translation_middleware
+    register_translation_middleware(app)
+    if should_log_startup:
+        logger.info("已注册翻译中间件（X-Lang: en 触发）")
+
     # 请求日志中间件
     @app.before_request
     def log_request():

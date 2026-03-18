@@ -12,6 +12,11 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
   config => {
+    // Translation layer: inject X-Lang header when English mode is active
+    const lang = localStorage.getItem('mirofish-lang')
+    if (lang === 'en') {
+      config.headers['X-Lang'] = 'en'
+    }
     return config
   },
   error => {

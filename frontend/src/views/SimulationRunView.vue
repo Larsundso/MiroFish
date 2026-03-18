@@ -15,7 +15,7 @@
             :class="{ active: viewMode === mode }"
             @click="viewMode = mode"
           >
-            {{ { graph: '图谱', split: '双栏', workbench: '工作台' }[mode] }}
+            {{ t('viewModes.' + mode) }}
           </button>
         </div>
       </div>
@@ -23,13 +23,14 @@
       <div class="header-right">
         <div class="workflow-step">
           <span class="step-num">Step 3/5</span>
-          <span class="step-name">开始模拟</span>
+          <span class="step-name">{{ t('steps.simulation') }}</span>
         </div>
         <div class="step-divider"></div>
         <span class="status-indicator" :class="statusClass">
           <span class="dot"></span>
           {{ statusText }}
         </span>
+        <LangToggle />
       </div>
     </header>
 
@@ -68,12 +69,15 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
+import LangToggle from '../components/LangToggle.vue'
 import GraphPanel from '../components/GraphPanel.vue'
 import Step3Simulation from '../components/Step3Simulation.vue'
 import { getProject, getGraphData } from '../api/graph'
 import { getSimulation, getSimulationConfig, stopSimulation, closeSimulationEnv, getEnvStatus } from '../api/simulation'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 

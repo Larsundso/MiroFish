@@ -31,5 +31,8 @@ chardet>=5.0.0
 # 环境变量加载
 python-dotenv>=1.0.0
 
+# HTTP请求（DeepL翻译API）
+requests>=2.28.0
+
 # 数据验证
 pydantic>=2.0.0

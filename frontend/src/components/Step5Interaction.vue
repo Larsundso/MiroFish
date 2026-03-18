@@ -58,7 +58,7 @@
                       <path d="M12 2a10 10 0 0 1 10 10" stroke-width="4" stroke="#4B5563" stroke-linecap="round"></path>
                     </svg>
                   </div>
-                  <span class="loading-text">正在生成{{ section.title }}...</span>
+                  <span class="loading-text">{{ t('step4.generatingSection', { title: section.title }) }}</span>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
               </svg>
-              <span>与Report Agent对话</span>
+              <span>{{ t('step5.chatWithReportAgent') }}</span>
             </button>
             <div class="agent-dropdown" v-if="profiles.length > 0">
               <button 
@@ -110,13 +110,13 @@
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-                <span>{{ selectedAgent ? selectedAgent.username : '与世界中任意个体对话' }}</span>
+                <span>{{ selectedAgent ? selectedAgent.username : t('step5.chatWithAgent') }}</span>
                 <svg class="dropdown-arrow" :class="{ open: showAgentDropdown }" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </button>
               <div v-if="showAgentDropdown" class="dropdown-menu">
-                <div class="dropdown-header">选择对话对象</div>
+                <div class="dropdown-header">{{ t('step5.selectAgent') }}</div>
                 <div 
                   v-for="(agent, idx) in profiles" 
                   :key="idx"
@@ -412,8 +412,11 @@
 
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { chatWithReport, getReport, getAgentLog } from '../api/report'
 import { interviewAgents, getSimulationProfilesRealtime } from '../api/simulation'
+
+const { t } = useI18n()
 
 const props = defineProps({
   reportId: String,

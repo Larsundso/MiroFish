@@ -13,7 +13,7 @@
     <!-- 标题区域 -->
     <div class="section-header">
       <div class="section-line"></div>
-      <span class="section-title">推演记录</span>
+      <span class="section-title">{{ t('history.title') }}</span>
       <div class="section-line"></div>
     </div>
 
@@ -36,16 +36,16 @@
             <span 
               class="status-icon" 
               :class="{ available: project.project_id, unavailable: !project.project_id }"
-              title="图谱构建"
+              :title="t('history.graphBuild')"
             >◇</span>
-            <span 
-              class="status-icon available" 
-              title="环境搭建"
+            <span
+              class="status-icon available"
+              :title="t('history.envSetup')"
             >◈</span>
-            <span 
-              class="status-icon" 
+            <span
+              class="status-icon"
               :class="{ available: project.report_id, unavailable: !project.report_id }"
-              title="分析报告"
+              :title="t('history.report')"
             >◆</span>
           </div>
         </div>
@@ -67,13 +67,13 @@
             </div>
             <!-- 如果有更多文件，显示提示 -->
             <div v-if="project.files.length > 3" class="files-more">
-              +{{ project.files.length - 3 }} 个文件
+              {{ t('history.moreFiles', { count: project.files.length - 3 }) }}
             </div>
           </div>
           <!-- 无文件时的占位 -->
           <div class="files-empty" v-else>
             <span class="empty-file-icon">◇</span>
-            <span class="empty-file-text">暂无文件</span>
+            <span class="empty-file-text">{{ t('history.noFiles') }}</span>
           </div>
         </div>
 
@@ -193,7 +193,10 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, onActivated, watch, nextTick } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { getSimulationHistory } from '../api/simulation'
+
+const { t } = useI18n()
 
 const router = useRouter()
 const route = useRoute()
