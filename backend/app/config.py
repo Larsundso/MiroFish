@@ -58,8 +58,7 @@ class Config:
         'TREND', 'REFRESH', 'DO_NOTHING', 'FOLLOW', 'MUTE'
     ]
     
-    # DeepL翻译配置
-    DEEPL_API_KEY = os.environ.get('DEEPL_API_KEY')
+    # 翻译配置（LLM英文直出 + 本地字典 + MyMemory免费备用）
 
     # Report Agent配置
     REPORT_AGENT_MAX_TOOL_CALLS = int(os.environ.get('REPORT_AGENT_MAX_TOOL_CALLS', '5'))

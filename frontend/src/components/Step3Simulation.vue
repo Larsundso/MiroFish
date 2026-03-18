@@ -290,7 +290,7 @@ import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 import { 
   startSimulation, 
   stopSimulation,
@@ -298,6 +298,7 @@ import {
   getRunStatusDetail
 } from '../api/simulation'
 import { generateReport } from '../api/report'
+import { translateLog } from '../utils/logTranslator'
 
 const props = defineProps({
   simulationId: String,
@@ -362,7 +363,7 @@ const redditElapsedTime = computed(() => {
 
 // Methods
 const addLog = (msg) => {
-  emit('add-log', msg)
+  emit('add-log', translateLog(msg, locale.value))
 }
 
 // 重置所有状态（用于重新启动模拟）

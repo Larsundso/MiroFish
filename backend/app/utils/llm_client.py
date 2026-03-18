@@ -11,6 +11,19 @@ from openai import OpenAI
 from ..config import Config
 
 
+_EN_SUFFIX = "\n\n[IMPORTANT: The user's interface language is English. You MUST output your entire response in English.]"
+
+
+def _append_english_suffix(messages):
+    """Append English output instruction to the last message without mutating the original."""
+    if not messages:
+        return messages
+    messages = [m.copy() for m in messages]
+    last = messages[-1]
+    last['content'] = last.get('content', '') + _EN_SUFFIX
+    return messages
+
+
 class LLMClient:
     """LLM客户端"""
     
@@ -51,6 +64,15 @@ class LLMClient:
         Returns:
             模型响应文本
         """
+        # If English mode is active, append suffix to last user message
+        try:
+            from flask import g
+            wants_english = getattr(g, '_translate_to_english', False)
+        except RuntimeError:
+            wants_english = False
+        if wants_english:
+            messages = _append_english_suffix(messages)
+
         kwargs = {
             "model": self.model,
             "messages": messages,

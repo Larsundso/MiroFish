@@ -165,7 +165,27 @@
     "startSimBtn": "Start Simulation ➝",
     "goBack": "← Go Back",
     "customRounds": "Custom Rounds",
-    "roundsPlaceholder": "Enter rounds"
+    "roundsPlaceholder": "Enter rounds",
+    "age": "Apparent Age",
+    "yearsOld": "",
+    "gender": "Apparent Gender",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderOther": "Other",
+    "country": "Country/Region",
+    "mbti": "Apparent MBTI",
+    "profileBio": "Profile Bio",
+    "relatedTopicsLabel": "Related Topics",
+    "detailedProfile": "Detailed Profile Background",
+    "eventExperience": "Full Event Experience",
+    "eventExperienceDesc": "Complete behavioral trajectory in this event",
+    "behaviorPattern": "Behavior Pattern",
+    "behaviorPatternDesc": "Experience summary and behavioral preferences",
+    "memoryImprints": "Memory Imprints",
+    "memoryImprintsDesc": "Memories formed from reality seeds",
+    "socialNetwork": "Social Network",
+    "socialNetworkDesc": "Individual links and interaction graph",
+    "firstRunTip": "For first runs, we strongly recommend switching to Custom mode and reducing rounds for a quick preview with lower error risk ➝"
   },
   "step3": {
     "startingUp": "Starting...",
@@ -174,7 +194,16 @@
     "simulationComplete": "Simulation Complete"
   },
   "step4": {
-    "generatingSection": "Generating {title}..."
+    "generatingSection": "Generating {title}...",
+    "keyMemories": "Key Memories",
+    "coreEntities": "Core Entities",
+    "relationChains": "Relation Chains",
+    "noKeyMemories": "No key memories yet",
+    "noCoreEntities": "No core entities yet",
+    "noRelationChains": "No relation chains yet",
+    "noActiveMemories": "No active memories yet",
+    "noHistoryMemories": "No history memories yet",
+    "noEntitiesInvolved": "No entities involved yet"
   },
   "step5": {
     "chatWithReportAgent": "Chat with Report Agent",

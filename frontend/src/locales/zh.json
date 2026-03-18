@@ -165,7 +165,27 @@
     "startSimBtn": "开始模拟 ➝",
     "goBack": "← 返回上一步",
     "customRounds": "自定义轮数",
-    "roundsPlaceholder": "输入轮数"
+    "roundsPlaceholder": "输入轮数",
+    "age": "事件外显年龄",
+    "yearsOld": "岁",
+    "gender": "事件外显性别",
+    "genderMale": "男",
+    "genderFemale": "女",
+    "genderOther": "其他",
+    "country": "国家/地区",
+    "mbti": "事件外显MBTI",
+    "profileBio": "人设简介",
+    "relatedTopicsLabel": "现实种子关联话题",
+    "detailedProfile": "详细人设背景",
+    "eventExperience": "事件全景经历",
+    "eventExperienceDesc": "在此事件中的完整行为轨迹",
+    "behaviorPattern": "行为模式侧写",
+    "behaviorPatternDesc": "经验总结与行事风格偏好",
+    "memoryImprints": "独特记忆印记",
+    "memoryImprintsDesc": "基于现实种子形成的记忆",
+    "socialNetwork": "社会关系网络",
+    "socialNetworkDesc": "个体链接与交互图谱",
+    "firstRunTip": "若首次运行，强烈建议切换至自定义模式减少模拟轮数，以便快速预览效果并降低报错风险 ➝"
   },
   "step3": {
     "startingUp": "启动中...",
@@ -174,7 +194,16 @@
     "simulationComplete": "模拟已完成"
   },
   "step4": {
-    "generatingSection": "正在生成{title}..."
+    "generatingSection": "正在生成{title}...",
+    "keyMemories": "当前关键记忆",
+    "coreEntities": "核心实体",
+    "relationChains": "关系链",
+    "noKeyMemories": "暂无当前关键记忆",
+    "noCoreEntities": "暂无核心实体",
+    "noRelationChains": "暂无关系链",
+    "noActiveMemories": "暂无当前有效记忆",
+    "noHistoryMemories": "暂无历史记忆",
+    "noEntitiesInvolved": "暂无涉及实体"
   },
   "step5": {
     "chatWithReportAgent": "与Report Agent对话",

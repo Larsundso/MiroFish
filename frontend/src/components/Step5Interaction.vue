@@ -415,8 +415,9 @@ import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { chatWithReport, getReport, getAgentLog } from '../api/report'
 import { interviewAgents, getSimulationProfilesRealtime } from '../api/simulation'
+import { translateLog } from '../utils/logTranslator'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const props = defineProps({
   reportId: String,
@@ -466,7 +467,7 @@ const rightPanel = ref(null)
 
 // Methods
 const addLog = (msg) => {
-  emit('add-log', msg)
+  emit('add-log', translateLog(msg, locale.value))
 }
 
 const toggleSectionCollapse = (idx) => {
