@@ -11,7 +11,28 @@ from openai import OpenAI
 from ..config import Config
 
 
-_EN_SUFFIX = "\n\n[IMPORTANT: The user's interface language is English. You MUST output your entire response in English.]"
+_EN_SUFFIX = "\n\n[CRITICAL INSTRUCTION: You MUST write your ENTIRE response in English. Do NOT use Chinese. Every word, sentence, and field value must be in English.]"
+
+# Module-level English mode flag — set by translation middleware on request,
+# persists for background threads spawned during that request.
+_english_mode_enabled = False
+
+
+def set_english_mode(enabled):
+    """Called by translation middleware to set language preference globally."""
+    global _english_mode_enabled
+    _english_mode_enabled = enabled
+
+
+def _wants_english():
+    """Check if English mode is active."""
+    if _english_mode_enabled:
+        return True
+    try:
+        from flask import g
+        return getattr(g, '_translate_to_english', False)
+    except RuntimeError:
+        return False
 
 
 def _append_english_suffix(messages):
@@ -65,12 +86,7 @@ class LLMClient:
             模型响应文本
         """
         # If English mode is active, append suffix to last user message
-        try:
-            from flask import g
-            wants_english = getattr(g, '_translate_to_english', False)
-        except RuntimeError:
-            wants_english = False
-        if wants_english:
+        if _wants_english():
             messages = _append_english_suffix(messages)
 
         kwargs = {

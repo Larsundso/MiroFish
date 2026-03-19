@@ -602,10 +602,20 @@ def prepare_simulation():
                     state.error = str(e)
                     manager._save_simulation_state(state)
         
+        # Capture language preference before spawning thread
+        from ..utils.llm_client import set_english_mode
+        from flask import g
+        _captured_english = getattr(g, '_translate_to_english', False)
+
+        def run_prepare_wrapper():
+            set_english_mode(_captured_english)
+            logger.info(f"Background thread: English mode = {_captured_english}")
+            run_prepare()
+
         # 启动后台线程
-        thread = threading.Thread(target=run_prepare, daemon=True)
+        thread = threading.Thread(target=run_prepare_wrapper, daemon=True)
         thread.start()
-        
+
         return jsonify({
             "success": True,
             "data": {

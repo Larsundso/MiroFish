@@ -526,10 +526,19 @@ class OasisProfileGenerator:
         
         for attempt in range(max_attempts):
             try:
+                # Inject English instruction if English mode is active
+                from ..utils.llm_client import _wants_english
+                sys_prompt = self._get_system_prompt(is_individual)
+                if _wants_english():
+                    sys_prompt = sys_prompt.replace('使用中文。', 'Use English for all output.')
+                    prompt = prompt.replace('使用中文（除了gender字段必须用英文male/female）', 'Use English for ALL fields.')
+                    prompt = prompt.replace('使用中文（除了gender字段必须用英文"other"）', 'Use English for ALL fields.')
+                    prompt = prompt.replace('国家（使用中文，如"中国"）', 'country (in English, e.g. "China")')
+
                 response = self.client.chat.completions.create(
                     model=self.model_name,
                     messages=[
-                        {"role": "system", "content": self._get_system_prompt(is_individual)},
+                        {"role": "system", "content": sys_prompt},
                         {"role": "user", "content": prompt}
                     ],
                     response_format={"type": "json_object"},

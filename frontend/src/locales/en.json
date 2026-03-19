@@ -211,7 +211,19 @@
     "selectAgent": "Select chat target",
     "sendMessage": "Send",
     "inputPlaceholder": "Type your question...",
-    "agentsAvailable": "{count} agents available"
+    "agentsAvailable": "{count} agents available",
+    "reportAgentDesc": "Fast chat version of the Report Agent with 4 specialized tools and full MiroFish memory",
+    "insightForge": "Deep Attribution",
+    "insightForgeDesc": "Aligns real-world seed data with simulation state using Global/Local Memory for cross-temporal deep attribution analysis",
+    "panoramaSearch": "Panoramic Tracking",
+    "panoramaSearchDesc": "Graph-based breadth traversal algorithm that reconstructs event propagation paths and captures full information flow topology",
+    "quickSearch": "Quick Search",
+    "quickSearchDesc": "GraphRAG-based instant query interface optimized for extracting specific node attributes and discrete facts",
+    "interview": "Virtual Interview",
+    "interviewDesc": "Autonomous interviewing that conducts parallel multi-turn conversations with simulated individuals to collect unstructured opinion data and psychological states",
+    "chatReportHint": "Chat with Report Agent to explore the report in depth",
+    "chatAgentHint": "Chat with a simulated individual to learn their perspective",
+    "sendSurvey": "Send survey to the world"
   },
   "graph": {
     "refreshGraph": "Refresh graph",

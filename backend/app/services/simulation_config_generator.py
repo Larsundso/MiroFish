@@ -439,10 +439,16 @@ class SimulationConfigGenerator:
         
         for attempt in range(max_attempts):
             try:
+                # Inject English instruction if English mode is active
+                from ..utils.llm_client import _wants_english
+                effective_sys_prompt = system_prompt
+                if _wants_english():
+                    effective_sys_prompt = "You MUST write your ENTIRE response in English. All field values in the JSON must be in English, not Chinese.\n\n" + system_prompt
+
                 response = self.client.chat.completions.create(
                     model=self.model_name,
                     messages=[
-                        {"role": "system", "content": system_prompt},
+                        {"role": "system", "content": effective_sys_prompt},
                         {"role": "user", "content": prompt}
                     ],
                     response_format={"type": "json_object"},

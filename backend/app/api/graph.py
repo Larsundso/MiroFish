@@ -561,21 +561,37 @@ def list_tasks():
 
 # ============== 图谱数据接口 ==============
 
+# Graph data cache: {graph_id: {"data": ..., "time": timestamp}}
+_graph_data_cache = {}
+_GRAPH_CACHE_TTL = 3600  # seconds — serve cached data for 1 hour (graph doesn't change after build)
+
 @graph_bp.route('/data/<graph_id>', methods=['GET'])
 def get_graph_data(graph_id: str):
     """
     获取图谱数据（节点和边）
+    Cached for 2 minutes to avoid consuming Zep rate limits on every poll.
     """
+    import time as _time
     try:
         if not Config.ZEP_API_KEY:
             return jsonify({
                 "success": False,
                 "error": "ZEP_API_KEY未配置"
             }), 500
-        
+
+        # Return cached data if fresh enough
+        cached = _graph_data_cache.get(graph_id)
+        if cached and (_time.time() - cached["time"]) < _GRAPH_CACHE_TTL:
+            return jsonify({
+                "success": True,
+                "data": cached["data"]
+            })
+
         builder = GraphBuilderService(api_key=Config.ZEP_API_KEY)
         graph_data = builder.get_graph_data(graph_id)
-        
+
+        _graph_data_cache[graph_id] = {"data": graph_data, "time": _time.time()}
+
         return jsonify({
             "success": True,
             "data": graph_data

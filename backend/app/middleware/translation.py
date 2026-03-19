@@ -236,6 +236,9 @@ def register_translation_middleware(app):
     def translation_before():
         g._translate_to_english = _wants_english()
         if g._translate_to_english:
+            # Propagate to thread-local so background threads inherit it
+            from ..utils.llm_client import set_english_mode
+            set_english_mode(True)
             _translate_request_body()
 
     @app.after_request
