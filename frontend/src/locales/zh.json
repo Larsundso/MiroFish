@@ -223,7 +223,17 @@
     "interviewDesc": "自主式访谈，能够并行与模拟世界中个体进行多轮对话，采集非结构化的观点数据与心理状态",
     "chatReportHint": "与 Report Agent 对话，深入了解报告内容",
     "chatAgentHint": "与模拟个体对话，了解他们的观点",
-    "sendSurvey": "发送问卷调查到世界中"
+    "sendSurvey": "发送问卷调查到世界中",
+    "bioLabel": "简介",
+    "selectTargets": "选择调查对象",
+    "selected": "已选",
+    "selectAll": "全选",
+    "clearAll": "清空",
+    "surveyQuestion": "问卷问题",
+    "surveyPlaceholder": "输入您想问所有被选中对象的问题...",
+    "sendSurveyBtn": "发送问卷",
+    "surveyResults": "调查结果",
+    "replies": "条回复"
   },
   "graph": {
     "refreshGraph": "刷新图谱",

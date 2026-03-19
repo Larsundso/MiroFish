@@ -126,7 +126,7 @@
                   <div class="agent-avatar">{{ (agent.username || 'A')[0] }}</div>
                   <div class="agent-info">
                     <span class="agent-name">{{ agent.username }}</span>
-                    <span class="agent-role">{{ agent.profession || '未知职业' }}</span>
+                    <span class="agent-role">{{ agent.profession || t('step2.unknownProfession') }}</span>
                   </div>
                 </div>
               </div>
@@ -235,7 +235,7 @@
             </div>
             <div v-if="showFullProfile && selectedAgent.bio" class="profile-card-body">
               <div class="profile-card-bio">
-                <div class="profile-card-label">简介</div>
+                <div class="profile-card-label">{{ t('step5.bioLabel') }}</div>
                 <p>{{ selectedAgent.bio }}</p>
               </div>
             </div>
@@ -317,8 +317,8 @@
           <div class="survey-setup">
             <div class="setup-section">
               <div class="section-header">
-                <span class="section-title">选择调查对象</span>
-                <span class="selection-count">已选 {{ selectedAgents.size }} / {{ profiles.length }}</span>
+                <span class="section-title">{{ t('step5.selectTargets') }}</span>
+                <span class="selection-count">{{ t('step5.selected') }} {{ selectedAgents.size }} / {{ profiles.length }}</span>
               </div>
               <div class="agents-grid">
                 <label 
@@ -335,7 +335,7 @@
                   <div class="checkbox-avatar">{{ (agent.username || 'A')[0] }}</div>
                   <div class="checkbox-info">
                     <span class="checkbox-name">{{ agent.username }}</span>
-                    <span class="checkbox-role">{{ agent.profession || '未知职业' }}</span>
+                    <span class="checkbox-role">{{ agent.profession || t('step2.unknownProfession') }}</span>
                   </div>
                   <div class="checkbox-indicator">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3">
@@ -345,20 +345,20 @@
                 </label>
               </div>
               <div class="selection-actions">
-                <button class="action-link" @click="selectAllAgents">全选</button>
+                <button class="action-link" @click="selectAllAgents">{{ t('step5.selectAll') }}</button>
                 <span class="action-divider">|</span>
-                <button class="action-link" @click="clearAgentSelection">清空</button>
+                <button class="action-link" @click="clearAgentSelection">{{ t('step5.clearAll') }}</button>
               </div>
             </div>
 
             <div class="setup-section">
               <div class="section-header">
-                <span class="section-title">问卷问题</span>
+                <span class="section-title">{{ t('step5.surveyQuestion') }}</span>
               </div>
               <textarea 
                 v-model="surveyQuestion"
                 class="survey-input"
-                placeholder="输入您想问所有被选中对象的问题..."
+                :placeholder="t('step5.surveyPlaceholder')"
                 rows="3"
               ></textarea>
             </div>
@@ -369,15 +369,15 @@
               @click="submitSurvey"
             >
               <span v-if="isSurveying" class="loading-spinner"></span>
-              <span v-else>发送问卷</span>
+              <span v-else>{{ t('step5.sendSurveyBtn') }}</span>
             </button>
           </div>
 
           <!-- Survey Results -->
           <div v-if="surveyResults.length > 0" class="survey-results">
             <div class="results-header">
-              <span class="results-title">调查结果</span>
-              <span class="results-count">{{ surveyResults.length }} 条回复</span>
+              <span class="results-title">{{ t('step5.surveyResults') }}</span>
+              <span class="results-count">{{ surveyResults.length }} {{ t('step5.replies') }}</span>
             </div>
             <div class="results-list">
               <div 

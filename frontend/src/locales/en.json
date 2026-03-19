@@ -223,7 +223,17 @@
     "interviewDesc": "Autonomous interviewing that conducts parallel multi-turn conversations with simulated individuals to collect unstructured opinion data and psychological states",
     "chatReportHint": "Chat with Report Agent to explore the report in depth",
     "chatAgentHint": "Chat with a simulated individual to learn their perspective",
-    "sendSurvey": "Send survey to the world"
+    "sendSurvey": "Send survey to the world",
+    "bioLabel": "Bio",
+    "selectTargets": "Select survey targets",
+    "selected": "Selected",
+    "selectAll": "Select all",
+    "clearAll": "Clear",
+    "surveyQuestion": "Survey question",
+    "surveyPlaceholder": "Enter the question you want to ask all selected targets...",
+    "sendSurveyBtn": "Send survey",
+    "surveyResults": "Survey results",
+    "replies": "replies"
   },
   "graph": {
     "refreshGraph": "Refresh graph",

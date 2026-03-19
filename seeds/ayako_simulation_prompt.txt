@@ -1,0 +1,96 @@
+Simulate a 72-hour social media discussion about the Discord bot "Ayako" across Twitter and Reddit. The discussion should focus on four core questions:
+
+1. **What should Ayako improve or fix?** — Simulate Discord server administrators, moderators, and regular users discussing Ayako's strengths and weaknesses. Ground the discussion in REAL ecosystem pain points: permission configuration failures (the #1 setup blocker across all bots), slash command UX problems (50-cmd limit, commands not appearing), reaction role breakage from hierarchy issues, automod false positives, and setup friction. Ayako has 55+ settings commands across 10 categories — is that power or overwhelm? Compare honestly against MEE6, Dyno, Carl-bot, YAGPDB, and Arcane.
+
+2. **Which of Ayako's unique features have viral/marketing potential?** — Ayako has features NO competitor offers. Agents should discuss which of these are worth marketing aggressively vs. which are niche:
+   - **Custom Client / White-Label**: Server admins can run Ayako under their own bot name/token. Enterprise-grade. No competitor has this.
+   - **Vote Punishment**: Community-driven moderation where members vote to punish rule-breakers. Controversial but innovative.
+   - **Ping Reporter**: Detects role mentions and notifies members who weren't pinged. Solves a real niche UX problem.
+   - **6 XP Formulas with visual graphs**: Polynomial, exponential, logarithmic, linear, quadratic, cubic — with Canvas-generated comparison charts. Competitors offer 1-2.
+   - **14-Metric Leveling Analytics per channel**: Tracks character count, word count, attachments, mentions, links, emotes. Allows conditional XP rules like "only count messages with 10+ words."
+   - **Community Art Gallery**: Website feature where users submit fan art of Ayako's anime mascot, displayed with artist attribution.
+   - **4-Mode Ticketing**: DM→Thread, DM→Channel, Thread, Channel. Most ticket bots offer 1-2 modes.
+   - **Dynamic Appeal Forms**: 6 question types, reviewer voting, full web workflow at ayakobot.com.
+   Which of these could be the "killer feature" that makes someone say "I NEED this bot"?
+
+3. **What do Discord users actually want in 2025-2026?** — Base this on real community discussions, NOT tech industry blogs. Real user priorities: reliable spam/raid protection, reaction roles that don't break, XP/leveling without paywalls, simple ticketing, trustworthy giveaways, fewer bots per server (consolidation), and web-based settings configuration. AI/ChatGPT is deeply divisive — Discord shut down Clyde after 8 months of backlash, banned 100K+ Shapes.inc bots, and anime/RP communities skew anti-AI. Agents should reflect this real division, not treat AI as universal demand.
+
+4. **How can a solo developer grow Ayako from 8K to 50K+ servers?** — Ayako is built and maintained by ONE developer in Germany. This is a hard constraint. Simulate realistic growth strategies given: top.gg has 6-7 outages/month and 4+ month review queues; YouTube "Best Bots" videos drive massive adoption; word-of-mouth from server staff is the most trusted channel; organic discovery (seeing features in use) beats listing SEO. What's the highest-ROI use of a solo developer's limited time — more features, better marketing, YouTube content, partnerships, or something else?
+
+The simulation should include these stakeholder types (8 types to fit within MiroFish's 10-type limit with Person/Organization fallbacks):
+- Small server admins (teenagers/young adults, 10-100 members — give up easily on complex setup, price-sensitive)
+- Large server admins (5,000+ members — need enterprise reliability, DM spam is a daily battle, willing to invest time)
+- Anime/RP community leaders (Ayako's core audience — need character collection compatibility, RP identity tools, custom visual roles as status symbols, tend anti-AI)
+- Discord bot developers (understand slash command limits, permission hell, bot listing ecosystem, can evaluate technical merit)
+- YouTube/TikTok bot reviewers (their videos drive massive adoption — what makes them feature a bot?)
+- Moderators (distinct from admins — burn out from scale, automod false positives, fear bot discontinuation like Tickets bot March 2025)
+- Regular Discord users (care about fun features, visual quality, response speed — not admin config)
+- Reddit power users from r/discordapp (skeptical, comparison-minded, vocally anti-paywall, influence community opinion)
+
+Key context ALL agents must know:
+
+**Ayako's stats:**
+- 8,026 servers, 2,470,970 users reached
+- 5.0/5.0 rating from 14 reviews on top.gg (229 total votes, 0 this month)
+- Listed on 8 bot listing platforms
+- Open source on GitHub (14 stars, 2,301 commits)
+- Solo developer (Larsundso, Germany), v3 microservices rewrite in progress
+
+**Ayako's strengths:**
+- Completely FREE — no premium tier, no paywalled features. MEE6 ($12/mo), Dyno ($5/mo), Carl-bot ($8/mo) all paywall. Users are ANGRY about paywalls (alternativestomee6.com exists solely to document MEE6 complaints).
+- 71+ roleplay/action commands with anime GIFs — most extensive in market
+- Custom roles with gradient/holographic colors — unique, valued as status symbols
+- White-label custom client system — no competitor offers this
+- Vote punishment — community-driven moderation, unique
+- 6 XP formulas with Canvas-generated visual comparison charts
+- 14-metric leveling analytics per channel with conditional XP rules
+- 4-mode ticketing with DM relay, claim/close/archive
+- Dynamic appeal forms with 6 question types and reviewer voting
+- Professional SvelteKit website with Three.js 3D homepage, garden/nature theme
+- Anime mascot "Ayako" with 6 reference variants and community fan art gallery
+- All 14 top.gg reviews are positive — users say "deserves way more support" and compare favorably to MEE6
+- 73 database tables, 84 event handlers, 55+ settings commands — technically comprehensive
+
+**Ayako's gaps:**
+- No web-based SETTINGS dashboard (the website has leaderboards, appeals, art — but configuration still requires slash commands). Every competitor has a settings dashboard. This is the #1 UX gap.
+- No setup wizard or guided onboarding — 55+ settings commands is overwhelming for new admins
+- No music features
+- Only 2 languages (English, German)
+- Solo developer — limits development speed and support bandwidth
+- Low brand recognition (8K servers vs MEE6's 21.3M)
+- YouTube channel exists but has no significant content — the biggest missed growth channel
+- 0 upvotes this month on top.gg — voting momentum stalled
+
+**Market context:**
+- Discord: 259M monthly active users, 54% non-gamers, 30M+ servers
+- Discord platform trust is LOW in 2026 (age verification backlash, ID leak via Persona, Nitro boycott) — users prefer transparent free open-source bots, which benefits Ayako
+- Bot consolidation trend: users want fewer bots per server, favoring all-in-one IF UX is clean
+- The "bot bloat" paradox: comprehensive bots are wanted but feared for complexity
+- Tickets bot discontinued March 2025 — reliability and longevity matter
+- 92% of users dislike external website redirects for verification
+- The #1 reason users uninvite bots: paywalling previously-free features (Ayako is immune)
+- Permission system complexity is the #1 setup blocker across ALL bots
+- MEE6 NFT scandal ($150 Genesis Pass, hack) created lasting anti-MEE6 sentiment
+
+Generate a detailed prediction report covering:
+
+**Priority recommendations (constraint-aware):**
+- Top 5 features to build NEXT, ranked by: (a) user demand evidence, (b) competitive differentiation, (c) feasibility for a solo developer, (d) growth impact
+- Top 5 existing features to improve, ranked by the same criteria
+- Which of Ayako's unique features (white-label, vote punishment, 6 XP formulas, etc.) should be the centerpiece of marketing — and why
+
+**Growth strategy:**
+- Top 5 growth actions ranked by ROI for a solo developer's time
+- Should Ayako pursue YouTube content, and if so, what format? (tutorials, showcases, comparisons)
+- What would make a YouTube bot reviewer choose to feature Ayako over 500K other bots?
+- Is the anime mascot brand an asset or a limiter for audience expansion?
+
+**Audience analysis:**
+- What does Ayako's core anime/RP audience need that no competitor provides?
+- Can Ayako expand beyond anime communities without alienating the core base?
+- Predicted community sentiment breakdown (positive/negative/neutral) with reasoning
+
+**Risk assessment:**
+- Key risks of inaction (what happens if Ayako stays at 8K servers with no marketing push)
+- Key risks of wrong investment (e.g., building AI features, adding more features vs. marketing existing ones)
+- Is the solo developer model sustainable at 50K+ servers? What breaks first?

@@ -108,6 +108,8 @@ const LOG_PHRASES = [
   ['达到最大迭代次数，强制生成', 'Max iterations reached, forcing generation'],
   ['章节', 'Section'],
   ['展开全部', 'Show all'],
+  ['发送问卷给', 'Sending survey to'],
+  ['选择对话对象', 'Selected chat target'],
 
   // Step2 preparation progress (from backend task data)
   ['读取图谱实体', 'Reading graph entities'],
