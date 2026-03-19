@@ -51,6 +51,15 @@ def _fetch_page_with_retry(
                 delay *= 2
             else:
                 logger.error(f"Zep {page_description} failed after {max_retries} attempts: {str(e)}")
+        except Exception as e:
+            err_str = str(e)
+            if '429' in err_str or 'Rate' in err_str:
+                logger.warning(f"Zep rate limit on {page_description}, waiting 65s...")
+                time.sleep(65)
+                continue
+            last_exception = e
+            logger.error(f"Zep {page_description} unexpected error: {err_str[:100]}")
+            break
 
     assert last_exception is not None
     raise last_exception

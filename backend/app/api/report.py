@@ -170,10 +170,19 @@ def generate_report():
                 logger.error(f"报告生成失败: {str(e)}")
                 task_manager.fail_task(task_id, str(e))
         
+        # Capture language preference before spawning thread
+        from ..utils.llm_client import set_english_mode
+        from flask import g
+        _captured_english = getattr(g, '_translate_to_english', False)
+
+        def run_generate_wrapper():
+            set_english_mode(_captured_english)
+            run_generate()
+
         # 启动后台线程
-        thread = threading.Thread(target=run_generate, daemon=True)
+        thread = threading.Thread(target=run_generate_wrapper, daemon=True)
         thread.start()
-        
+
         return jsonify({
             "success": True,
             "data": {
